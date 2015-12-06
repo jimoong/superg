@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="ext/material.min.css">
+		<link rel="stylesheet" href="css/superg.css">
+		<style>
+			.demo {
+				display: box;
+				display: -webkit-box;
+				height: 96px;
+				margin: 96px auto;
+				box-align: center;
+				box-pack: center;
+				-webkit-box-align: center;
+				-webkit-box-pack: center;
+			}
+			.demo div {
+				float: left;
+				margin: 0 48px;
+			}
+			.demo div::after {
+				position: absolute;
+				top: 125%;
+				right: 0;
+				left: 0;
+				height: 24px;
+				line-height: 24px;
+				font-size: 10px;
+				text-align: center;
+				color: rgba(0, 0, 0, .38);
+			}
+			#superg::after {
+				content: "96";
+			}
+			#s2::after {
+				content: "72";
+			}
+			#s3::after {
+				content: "48";
+			}
+			#s4::after {
+				content: "36";
+			}
+			#s5::after {
+				content: "24";
+				height: 48px;
+				line-height: 48px;
+				font-size: 20px;
+			}
+			#s6::after {
+				content: "18";
+				height: 48px;
+				line-height: 48px;
+				font-size: 20px;
+			}
+			#s5, #s6 {
+				transform: scale(0.5);
+				-webkit-transform: scale(0.5);
+			}
+			.buttons {
+				clear: left;
+				text-align: center;
+			}
+			#toggle button {
+				color: rgba(0, 0, 0, .38);
+			}
+			.buttons button {
+				margin: 0 8px;
+			}
+			.superg {
+				border: 1px dashed rgba(0, 0, 0, .1);
+			}
+		</style>
+		<script src="ext/lib.min.js"></script>
+		<script src="js/core.js"></script>
+		<script src="js/dot.js"></script>
+		<script src="js/g.js"></script>
+		<script src="js/motion.js"></script>
+		<script src="js/custom_motion.js"></script>
+		<script src="js/data.js"></script>
+	</head>
+	<body>
+
+
+
+		<!-- SuperG -->
+		<div class="demo">
+			<div id="superg" style="width:96px;height:96px;"></div>
+			<div id="s2" style="width:72px;height:72px;"></div>
+			<div id="s3" style="width:48px;height:48px;"></div>
+			<div id="s4" style="width:36px;height:36px;"></div>
+			<div id="s5" style="width:48px;height:48px;"></div>
+			<div id="s6" style="width:36px;height:36px;"></div>
+		</div>
+
+
+
+		<div class="buttons">
+			<button id="tochar" class="mdl-button mdl-js-button mdl-js-ripple-effect">SUPER G</button>
+			<button id="todots" class="mdl-button mdl-js-button mdl-js-ripple-effect">4 Dots</button>
+			<br><br>
+			<div id="toggle">
+				<button id="shake" class="mdl-button mdl-js-button mdl-js-ripple-effect">Shake</button>
+				<button id="wave" class="mdl-button mdl-js-button mdl-js-ripple-effect">Wave</button>
+				<button id="jump" class="mdl-button mdl-js-button mdl-js-ripple-effect">Jumping</button>
+				<button id="circle" class="mdl-button mdl-js-button mdl-js-ripple-effect">Circling</button>
+				<button id="pulse" class="mdl-button mdl-js-button mdl-js-ripple-effect">Pulsing</button>
+				<button id="listen" class="mdl-button mdl-js-button mdl-js-ripple-effect">Listening</button>
+				<button id="speak" class="mdl-button mdl-js-button mdl-js-ripple-effect">Speaking</button>
+				<button id="think" class="mdl-button mdl-js-button mdl-js-ripple-effect">Thinking</button>
+				<button id="ok" class="mdl-button mdl-js-button mdl-js-ripple-effect">OK</button>
+			</div>
+		</div>
+
+		<script>
+		(function() {
+			window.addEventListener("load", function() {
+				var sgs = [
+					new SuperG('superg'),
+					new SuperG('s2'),
+					new SuperG('s3'),
+					new SuperG('s4'),
+					new SuperG('s5'),
+					new SuperG('s6')
+				];
+
+				var l = function (i, f) { document.getElementById(i).addEventListener('click', f, false); };
+				var s = function (state) { for (i in sgs) { sgs[i].setState(state); } };
+				var t = function (visible) { document.getElementById('toggle').style.display = visible; };
+
+				l('shake',	function() { s('shake'); });
+				l('wave',	function() { s('wave'); });
+				l('jump',	function() { s('jumping'); });
+				l('circle',	function() { s('circling'); });
+				l('pulse',	function() { s('circling-pulsing'); });
+				l('listen',	function() { s('listening'); });
+				l('speak',	function() { s('speaking'); });
+				l('think',	function() { s('thinking'); });
+				l('ok',		function() { s('ok'); });
+
+				l('tochar',	function() { s('superg'); });
+				l('todots',	function() { s('fourdots'); });
+				l('tochar',	function() { t('none'); });
+				l('todots',	function() { t('block'); });
+
+				s('fourdots');
+			}, false);
+		})();
+		</script>
+
+	</body>
+</html>

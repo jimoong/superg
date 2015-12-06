@@ -1,0 +1,99 @@
+.superg {
+	position: relative;
+	transition: transform .4s;
+	transition: -webkit-transform .4s;
+}
+
+dots, slide, dot, 
+circles, circle, line, mask,
+char, curve, stroke {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+}
+
+.superg.quarter		{ transform: scale(0.25); }
+.superg.half		{ transform: scale(0.5); }
+.superg.original	{ transform: scale(1); }
+.superg.double		{ transform: scale(2); }
+
+.superg dots,
+.superg char {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.superg slide {
+	width: 0;
+	height: 100%;
+	left: 50%;
+	transform-origin: 0 50%;
+	-webkit-transform-origin: 0 50%;
+}
+
+.superg dot circles {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.superg dot mask {
+	overflow: hidden;
+}
+
+.superg dot mask.bar {
+	top: 50%;
+}
+
+.superg dot mask.curve {
+	right: 0;
+	top: 50%;
+	transform-origin: 50% 0;
+	-webkit-transform-origin: 50% 0;
+}
+
+.superg dot line.curve,
+.superg dot circle,
+.superg curve line {
+	box-sizing: border-box;
+	border-style: solid;
+	border-radius: 50% 50%;
+	border-color: transparent;
+}
+
+.superg dot.blue line.curve {
+	display: none;
+}
+
+.superg char mask,
+.superg char curve {
+	overflow: hidden;
+	transform-origin: 50% 0;
+	-webkit-transform-origin: 50% 0;
+}
+
+.superg char curve {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.superg char mask.curve {
+	transform-origin: 50% 100%;
+	-webkit-transform-origin: 50% 100%;
+}
+
+.superg char stroke {
+	position: absolute;
+	right: 0;
+	transform-origin: 100% 50%;
+	-webkit-transform-origin: 100% 50%;
+	background-color: #4285f4;
+}
