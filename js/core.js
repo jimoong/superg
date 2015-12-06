@@ -32,7 +32,7 @@ var SuperG = function (id) {
 SuperG.prototype.init = function(id) {
 	this.element = document.getElementById(id);
 	this.element.classList.add('superg');
-	this.size = this.element.clientHeight;
+	this.size = this.element.clientWidth;
 	this.thickness = Math.floor(this.size / 6);
 	if (isOdd(this.thickness)) {
 		this.thickness += 1;
