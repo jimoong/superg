@@ -53,7 +53,7 @@ SuperG.Curve = function (index, id, color, rotation, size, thickness) {
 	this.curve.style.top = (this.diff > 0) ? -this.adjusted + 'px' : -size / 2 + 'px';
 	this.curve.style.transformOrigin = this.curve.style.webkitTransformOrigin = size / 2 + "px " + size / 2 + "px";
 
-	this.curveInner.style.borderWidth = thickness;
+	this.curveInner.style.borderWidth = thickness + 'px';
 	this.curveInner.style.borderColor = color;
 	this.curve.appendChild(this.curveInner);
 	this.mask.appendChild(this.curve);
